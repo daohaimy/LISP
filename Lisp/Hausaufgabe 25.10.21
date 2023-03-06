@@ -1,0 +1,37 @@
+; 18. Oktober 2021
+; Mobile_Problem
+; Hai My Dao
+
+(define mobile
+  5)
+(define mobile0
+  '(10 10))
+(define mobile1
+  '((10 10) ((5 5) 10)))
+(define mobile2
+  '((((5 5) 10) ((5 5) 10)) (((5 (2 3)) (5 (2 3))) ((5 5) 10))))
+
+; Wie bestimmt man die Masse eines Mobiles?
+(define (masse liste)
+  (cond ((not (list? liste)) liste)
+        (else (+ (masse (car liste))
+                 (masse (cadr liste))))))
+
+; Wie bestimmt man das Gewicht eines Mobiles?
+(define (gleichgewicht?1 mobile)
+  (cond ((not (list? mobile)) #true)
+        (else (and (= (masse (car mobile))
+                      (masse (car (cdr mobile))))
+                   (gleichgewicht?1 (car mobile))
+                   (gleichgewicht?1 (car (cdr mobile)))))))
+
+;Liste von Fischen
+(define fischeListe
+'((15 10 30 5) 60 40 ((10 20 20 10) 20 40 10)))
+;Aufgabe 1
+(define (gleichgewicht?2 fischeListe)
+  (cond ((not (list? fischeListe)) #false)
+         (else (and (= (masse (car fischeListe))
+                      (masse (car (cdr fischeListe))))
+                   (gleichgewicht?1 (car fischeListe))
+                   (gleichgewicht?1 (car (cdr fischeListe)))))))

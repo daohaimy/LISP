@@ -1,0 +1,43 @@
+;Hausaufgaben 11 bis 15
+;Hai My Dao
+;für den 23.08.2021
+
+;Aufgabe 11
+(define (summe n)
+  (cond ((= n 1) n)
+        (else (+ n (summe ( - n 1))))))
+
+;Aufgabe 12
+;12.1
+(define (addiere a b)
+  (cond ((= a 0) b)
+        ((= b 0) a)
+  (else (addiere (sub1 a)(add1 b)))))
+;12.2
+(define (subtrahiere a b)
+  (cond ((= a 0) b)
+        ((= b 0) a)
+  (else (subtrahiere (sub1 a)(sub1 b)))))
+
+;Aufgabe 13
+;13.1
+(define (multipliziere a b)
+  (cond ((= a 0) 0)
+        ((= b 0) 0)      
+  (else (add1 (sub1 (* a b))))))
+;13.2
+(define (dividiere a b)
+  (cond ((= a 0) 0)
+        ((= a b) 1)
+  (else (add1 (sub1 (/ a b))))))
+
+;Aufgabe 14
+(define (potenz n x)
+  (cond ((= x 0) 1)
+        ((= x 1) n)
+  (else (multipliziere n (potenz n (sub1 x))))))
+
+;Aufgabe 15
+(define (ggT a b)
+  (cond ((= b 0) a)
+        (else (ggT b (modulo a b)))))

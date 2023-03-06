@@ -1,0 +1,67 @@
+;; The first three lines of this file were inserted by DrRacket. They record metadata
+;; about the language level of this file in a form that our tools can easily process.
+#reader(lib "htdp-beginner-reader.ss" "lang")((modname |Hausaufgabe 4-7|) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
+; Definition einer Funktion
+; Hai My Dao
+; 09.08.2021
+
+(define (quadriere x)
+  (* x x))
+
+(define (volumen l b h)
+  (* 2 (+ (* l b)
+          (* l h)
+          (* b h))))
+
+
+;Aufgabe 4.1
+(define (oberflaecheKugel r)
+  (* 4 pi r r))
+
+(define (volumenKugel r)
+  (* 0.75 pi r r r))
+
+
+;Aufgabe 4.2
+(define (oberflaecheZylinder r h)
+  (+ (* 2 pi (sqr r)) (* 2 pi r h)))
+  
+(define (volumenZylinder r h)
+  (* pi (sqr r) h))
+
+;Aufgabe 4.3
+(define (oberflaecheWuerfel a)
+  (* 6 (sqr a)))
+(define (volumenWuefel a)
+  (* (sqr a) a))
+
+;Aufgabe 4.4
+(define (volumenKegel r h)
+  (* (/ 1 3) pi (sqr r) h))
+(define (mantelflaecheKegel r s)
+  (* pi r s))
+(define (oberflaecheKegel r s)
+  (+ (* pi (sqr r)) (* pi r s)))
+
+;Aufgabe 5.1
+(define (p2 x)
+  (sqr x))
+;Aufgabe 5.2
+(define (p3 x)
+  (* (sqr x) x))
+;Aufgabe 5.3
+(define (p4 x)
+  (sqr(sqr x)))
+;Aufgabe 5.4
+(define (p12 x)
+  (* (sqr(sqr x)) (sqr(sqr x)) (sqr(sqr x))))
+
+;Aufgabe 6
+(define (parabel a b c x)
+  (+ (* a (sqr x)) (* b x) c))
+
+;Aufgabe 7
+(define (parallelschaltung R1 R2)
+  (/ (* R1 R2) (+ R1 R2)))
+(define (reihenschaltung R1 R2)
+  (+ R1 R2))
